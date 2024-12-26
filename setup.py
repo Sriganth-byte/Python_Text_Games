@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='text_games',  # The name of your package
-    version='0.2.0',  # Updated version for the new release
+    version='0.2.1',  # Updated version for the new release
     packages=find_packages(),  # Automatically find packages in the directory
     install_requires=[
         'pygame',  # Required for Snake game and other graphical interfaces
