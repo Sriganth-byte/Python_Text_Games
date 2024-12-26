@@ -1,6 +1,6 @@
 # Text Games
 
-`text_games is a Python module that offers a collection of simple, text-based games for fun and learning.
+`text_games` is a Python module that offers a collection of simple, text-based games for fun and learning.
 
 ## Features
 
@@ -10,30 +10,24 @@ The module includes the following games:
 3. **Rock-Paper-Scissors**: Play against the computer.
 4. **Riddle Game**: Solve riddles within a limited number of attempts.
 5. **Word Scramble**: Unscramble the shuffled letters to form a word.
+6. **Snake Game**: A simple terminal-based version of the classic Snake game.
+7. **Tic-Tac-Toe**: Play Tic-Tac-Toe (Noughts and Crosses) against the computer or another player.
 
 ## Installation
 
 You can install the module via `pip`:
 
-```bash
-pip install text-games
+`pip install text-games`
 
-USAGE
+Usage
+Each game is implemented in its own file within the `text_games` folder. You can import and use them individually as needed. Here's how you can play each game:
 
-from text_games import games
+Hangman
+`from text_games.hangman import play_hangman`
+`play_hangman()`
 
-# Play Hangman
-games.hangman()
+Number Gusser
+`from text_games.number_guesser import play_number_guesser`
+`play_number_guesser()`
 
-# Play Number Guesser
-games.number_guesser()
-
-# Play Rock-Paper-Scissors
-games.rock_paper_scissors()
-
-# Play Riddle Game
-games.riddle_game()
-
-# Play Word Scramble
-games.word_scramble()
-
+Similarly import the necessary game and use as the above structured code to use the game.
