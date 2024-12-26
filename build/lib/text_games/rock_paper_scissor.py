@@ -1,6 +1,6 @@
 import random
 
-def run_rock_paper_scissors():
+def run_rock_paper_scissor():
     choices = ["rock", "paper", "scissors"]
     print("Welcome to Rock, Paper, Scissors!")
     

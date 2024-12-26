@@ -23,11 +23,30 @@ Usage
 Each game is implemented in its own file within the `text_games` folder. You can import and use them individually as needed. Here's how you can play each game:
 
 Hangman
-`from text_games.hangman import play_hangman`
-`play_hangman()`
+`from text_games.hangman import run_hangman`
+`run_hangman()`
 
 Number Gusser
-`from text_games.number_guesser import play_number_guesser`
-`play_number_guesser()`
+`from text_games.number_guesser import run_number_guesser`
+`run_number_guesser()`
 
-Similarly import the necessary game and use as the above structured code to use the game.
+Rock Paper Scissor
+`from text_games.rock_paper_scissor import run_rock_paper_scissors`
+`run_rock_paper_scissors()`
+
+Riddle game
+`from text_games.riddle_game import run_riddle_game`
+`run_riddle_game()`
+
+Word Scrambler
+`from text_games.word_scrambler import run_word_scrambler`
+`run_word_scrambler()`
+
+Snake Game
+`from text_games.snake_game import run_snake_game`
+`run_snake_game()`
+
+Tic Tac Toe
+`from text_games.tic_tac_toe import run_tic_tac_toe`
+`run_tic_tac_toe()`
+
