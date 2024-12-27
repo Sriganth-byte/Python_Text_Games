@@ -3,7 +3,7 @@ from tkinter import messagebox
 from tkinter import filedialog
 import os
 
-def run_student_record_form():
+def run_student_form():
     class StudentRecordForm:
         def __init__(self, root):
             self.root = root

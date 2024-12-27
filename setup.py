@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fun_utilities_and_games',  # The new name of your package
-    version='0.1.3',  # First version of the package
+    version='0.1.4',  # First version of the package
     packages=find_packages(),  # Automatically find packages in the directory
     install_requires=[
         'pygame',  # Required for Snake game and other graphical interfaces
