@@ -39,11 +39,11 @@ Each project is implemented in its own file within the fun_utilities folder. You
 Hangman
 `from fun_utilities.hangman import run_hangman`
 `run_hangman()`
+
 Number Guesser
-python
-Copy code
 `from fun_utilities.number_guesser import run_number_guesser`
 `run_number_guesser()`
+
 Rock-Paper-Scissors
 `from fun_utilities.rock_paper_scissor import run_rock_paper_scissors`
 `run_rock_paper_scissors()`
