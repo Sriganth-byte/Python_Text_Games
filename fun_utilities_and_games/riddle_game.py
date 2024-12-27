@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-
-# List of 50+ riddles
+import random
 riddles = [
     ("What has keys but can't open locks?", "keyboard"),
     ("What has to be broken before you can use it?", "egg"),
@@ -56,58 +55,49 @@ riddles = [
     ("What comes once in a year, twice in a week, but never in a day?", "e"),
 ]
 
-# Initialize the Tkinter window
-root = tk.Tk()
-root.title("Riddle Game")
-root.geometry("500x400")
+def run_riddle_game():
+    root = tk.Tk()
+    root.title("Riddle Game")
+    root.geometry("600x400")
 
-# Initialize score
-score = 0
-current_riddle = 0
+    score = 0
+    current_riddle_index = 0
 
-def next_riddle():
-    global score, current_riddle
-    if current_riddle >= len(riddles):
-        messagebox.showinfo("Game Over", f"Game over! Your score: {score}/{len(riddles)}")
-        root.quit()
-    else:
-        riddle, answer = riddles[current_riddle]
-        riddle_label.config(text=riddle)
-        answer_button1.config(command=lambda: check_answer(answer, answer_button1))
-        answer_button2.config(command=lambda: check_answer(answer, answer_button2))
-        answer_button3.config(command=lambda: check_answer(answer, answer_button3))
-        answer_button4.config(command=lambda: check_answer(answer, answer_button4))
+    random.shuffle(riddles)
 
-def check_answer(correct_answer, button):
-    global score, current_riddle
-    user_answer = button.cget("text").strip().lower()
-    if user_answer == correct_answer:
-        score += 1
-        messagebox.showinfo("Correct!", "That's the correct answer!")
-    else:
-        messagebox.showinfo("Incorrect", f"Wrong! The correct answer was: {correct_answer}")
-    
-    current_riddle += 1
+    def next_riddle():
+        nonlocal current_riddle_index
+        if current_riddle_index >= len(riddles):
+            messagebox.showinfo("Game Over", f"Game over! Your score: {score}/{len(riddles)}")
+            root.quit()
+        else:
+            riddle, correct_answer = riddles[current_riddle_index]
+            riddle_label.config(text=riddle)
+            user_answer_entry.delete(0, tk.END)
+
+    def check_answer():
+        nonlocal score, current_riddle_index
+        user_answer = user_answer_entry.get().strip().lower()
+        correct_answer = riddles[current_riddle_index][1].lower()
+
+        if user_answer == correct_answer:
+            messagebox.showinfo("Correct!", "That's the correct answer!")
+            score += 1
+        else:
+            messagebox.showinfo("Incorrect", f"Wrong! The correct answer was: {correct_answer}")
+
+        current_riddle_index += 1
+        next_riddle()
+
+    riddle_label = tk.Label(root, text="Welcome to the Riddle Game!", font=("Helvetica", 14), wraplength=500, justify="center")
+    riddle_label.pack(pady=20)
+
+    user_answer_entry = tk.Entry(root, font=("Helvetica", 12), width=30)
+    user_answer_entry.pack(pady=10)
+
+    submit_button = tk.Button(root, text="Submit Answer", font=("Helvetica", 12), command=check_answer)
+    submit_button.pack(pady=20)
+
     next_riddle()
 
-# Create widgets
-riddle_label = tk.Label(root, text="Welcome to the Riddle Game!", font=("Helvetica", 14), wraplength=400)
-riddle_label.pack(pady=20)
-
-answer_button1 = tk.Button(root, text="Option 1", font=("Helvetica", 12))
-answer_button1.pack(pady=5, fill=tk.X)
-
-answer_button2 = tk.Button(root, text="Option 2", font=("Helvetica", 12))
-answer_button2.pack(pady=5, fill=tk.X)
-
-answer_button3 = tk.Button(root, text="Option 3", font=("Helvetica", 12))
-answer_button3.pack(pady=5, fill=tk.X)
-
-answer_button4 = tk.Button(root, text="Option 4", font=("Helvetica", 12))
-answer_button4.pack(pady=5, fill=tk.X)
-
-# Start the game
-next_riddle()
-
-# Run the Tkinter event loop
-root.mainloop()
+    root.mainloop()
